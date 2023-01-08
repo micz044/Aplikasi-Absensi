@@ -1,0 +1,37 @@
+Student::create([
+      'classroom_id' => 2,
+      'name' => 'sinar',
+      'nim' => '205012',
+      'kelas' =>'11',
+      'alamat' => 'makassar',
+      'no_tlp' => '08254644322',
+      'email' => 'sinar@gmail.com',
+      'nama_ortu' => 'putra'
+]);
+
+Group::create([
+      'group' => 'B',
+      'slug' => 'B',
+]);
+
+Classroom::create([
+      'kelas' => '8',
+      'slug' => 'delapan',
+]);
+
+
+
+<div class="mb-3">
+              <label for="kelas" class="form-label">Kelas</label>
+              <select class="form-select" name="kelas" id="classroom_id" class="form-control @error('classroom_id') is-invalid @enderror">
+                <option class="text-muted" selected ></option>
+                @foreach ($classrooms as $classroom)
+                <option value="{{ $classroom->id }}">{{ $classroom->kelas }}</option>   
+                @endforeach
+              </select>
+              @error('kelas')
+                  <div class="invalid-feedback">
+                    {{ $message }}
+                  </div>
+              @enderror
+            </div>
