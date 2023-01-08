@@ -10,11 +10,6 @@ class Absen extends Model
 
     protected $guarded = ['id'];
 
-    public function user()
-    {
-        return $this->belongsTo(Student::class);
-    }
-
     public function Student()
     {
         return $this->belongsTo(Student::class);
