@@ -6,6 +6,7 @@ use App\Models\Absen;
 use App\Models\Student;
 use Illuminate\Http\Request;
 
+
 class DashboardAbsensiController extends Controller
 {
     /**
@@ -16,7 +17,7 @@ class DashboardAbsensiController extends Controller
     public function index()
     {
         return view('dashboard.absensi.absen' ,[
-            'students'=> Student::all() 
+            'students'=> Student::all(),
          ]);
     }
 
@@ -27,9 +28,9 @@ class DashboardAbsensiController extends Controller
      */
     public function create()
     {
-        return view('dashboard.absensi.absen',[
-            'absen' => Absen::all()
-        ]);
+        return view('dashboard.absensi.absen' ,[
+            'students'=> Student::all(),
+         ]);
     }
 
     /**
@@ -40,15 +41,17 @@ class DashboardAbsensiController extends Controller
      */
     public function store(Request $request)
     {
+        
         $validatedData =
          $request->validate([
             'student_id' => 'required',
+            'status_id' => 'required',
             'absen' => 'required'
         ]);
         
-
         Absen::create($validatedData);
-        return redirect('/dashboard/absensi')->with('success', 'absen siswa telah berhasil di input!');
+        //return $request;
+        return redirect('/dashboard')->with('success', 'absen siswa telah berhasil di input!');
     }
 
     /**

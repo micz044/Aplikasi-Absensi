@@ -16,9 +16,9 @@ return new class extends Migration
         Schema::create('absens', function (Blueprint $table) {
             $table->id();
             $table->foreignId('student_id');
-            $table->string('hadir')->nullable();
-            $table->string('izin')->nullable();
-            $table->string('alfa')->nullable();
+            $table->foreignId('status_id');
+            $table->string('absen');
+            $table->string('note')->nullable();
             $table->timestamps();
         });
     }

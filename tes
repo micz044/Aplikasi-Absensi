@@ -9,9 +9,9 @@ Student::create([
       'nama_ortu' => 'putra'
 ]);
 
-Group::create([
-      'group' => 'B',
-      'slug' => 'B',
+Status::create([
+      'name' => 'Alfa',
+      'keterangan' => 'Alfa',
 ]);
 
 Classroom::create([

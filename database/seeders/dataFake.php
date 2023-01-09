@@ -1,12 +1,13 @@
 <?php
 
 namespace Database\Seeders;
-use App\Models\Group;
 use App\Models\User;
+use App\Models\Group;
+use App\Models\Status;
 use App\Models\Student;
 use App\Models\Classroom;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class dataFake extends Seeder
 {

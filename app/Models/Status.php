@@ -1,22 +1,19 @@
 <?php
 
 namespace App\Models;
+
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Absen;
 
-class Absen extends Model
+class Status extends Model
 {
     use HasFactory;
 
     protected $guarded = ['id'];
-
-    public function Student()
+    public function Absen()
     {
-        return $this->belongsTo(Student::class);
-    }
-
-    public function Status()
-    {
-        return $this->hasOne(Status::class);
+        return $this->belongsTo(Absen::class);
     }
 }
+

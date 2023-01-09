@@ -37,17 +37,17 @@
                             <td>{{ $student->group->name }}</td>
                             <td>
                                 
-                                @if (old('absen') === $student->id)
+                                @if (old('absen'))
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="absen" value="Hadir" checked>
+                                    <input class="form-check-input" type="radio" name="absen" value="Hadir" >
                                     <label class="form-check-label" for="Hadir">Hadir</label>
                                 </div>
                                     <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="absen" value="Izin" checked>
+                                        <input class="form-check-input" type="radio" name="absen" value="Izin" >
                                         <label class="form-check-label" for="izin">Izin</label>
                                 </div>
                                     <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="absen" value="Alfa" checked>
+                                    <input class="form-check-input" type="radio" name="absen" value="Alfa" >
                                     <label class="form-check-label" for="alfa">Alfa</label>
                                 </div>    
                                 @else
