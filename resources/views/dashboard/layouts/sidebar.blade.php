@@ -24,6 +24,14 @@
               <li class="nav-item">
                 <a class="nav-link {{ Request::is('dashboard/absensi*') ? 'active' : ''}}" href="/dashboard/absensi">
                   <span data-feather="file-text" class="align-text-bottom"></span>
+                  kategori
+                </a>
+              </li>
+            </ul>
+            <ul class="nav flex-column">
+              <li class="nav-item">
+                <a class="nav-link {{ Request::is('dashboard/absensi*') ? 'active' : ''}}" href="/dashboard/absensi">
+                  <span data-feather="file-text" class="align-text-bottom"></span>
                   Absensi
                 </a>
               </li>

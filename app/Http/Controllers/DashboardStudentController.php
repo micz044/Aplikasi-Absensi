@@ -1,10 +1,13 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Exports\StudentExport;
+use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Http\Request;
 use App\Models\Student;
 use App\Models\Classroom;
 use App\Models\Group;
+//use Vtiful\Kernel\Excel;
 
 
 class DashboardStudentController extends Controller
@@ -19,6 +22,11 @@ class DashboardStudentController extends Controller
         return view('dashboard.student.index' ,[
            'students'=> Student::all() 
         ]);
+    }
+
+    public function studentExport()
+    {
+        return Excel::download(new StudentExport, 'student.xlsx');
     }
 
     /**

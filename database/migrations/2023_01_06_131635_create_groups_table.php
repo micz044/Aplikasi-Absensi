@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('groups', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('classroom_id');
             $table->string('name');
             $table->string('group');
             $table->string('slug')->nullable();

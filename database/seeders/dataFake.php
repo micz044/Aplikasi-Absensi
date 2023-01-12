@@ -56,6 +56,7 @@ class dataFake extends Seeder
        
       
       Group::create([
+            
             'name' => 'A',
             'group' => 'A',
       ]);

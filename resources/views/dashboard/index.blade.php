@@ -8,15 +8,10 @@
           <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
           <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
         </div>
-        <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
-          <span data-feather="calendar" class="align-text-bottom"></span>
-          This week
-        </button>
+        <input type="datetime-local" name="kalender" id="kalender">
       </div>
-    </div>
-
+    </div>  
     <body>
- 
       <style>
       h1,h2,p,a{
         font-family: sans-serif;
@@ -68,5 +63,5 @@
         document.getElementById("detik").innerHTML = waktu.getSeconds();
       }
     </script>
-    </body>
+ </body>
 @endsection

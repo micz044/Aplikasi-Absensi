@@ -15,5 +15,10 @@ class Classroom extends Model
     {
         return $this->hasOne(Student::class);
     }
+
+    public function Group()
+    {
+        return $this->belongsTo(Group::class, 'classroom_id');
+    }
 }
 

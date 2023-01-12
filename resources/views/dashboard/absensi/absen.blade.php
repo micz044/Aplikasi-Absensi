@@ -3,6 +3,16 @@
 @section('container')
   <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <h1 class="h2">Daftar Absen Siswa</h1>
+        <div class="btn-toolbar mb-2 mb-md-0">
+            <div class="btn-group me-2">
+              <button type="button" class="btn btn-sm btn-outline-secondary">Print</button>
+              <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
+            </div>
+            <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
+              <span data-feather="calendar" class="align-text-bottom"><span>
+              This week
+            </button>
+          </div>
   </div>
 
     @if (session()->has('success'))
@@ -25,9 +35,6 @@
                 </tr>
             </thead>
             <tbody>
-                <form method="POST" action="/dashboard/absensi">
-                    <button type="submit" class="btn btn-primary">Input Data</button>
-                    @csrf
                     @foreach ($students as $student)
                         <tr>
                             <td>{{ $loop->iteration }}</td>
@@ -36,39 +43,28 @@
                             <td>{{ $student->classroom->kelas }}</td>
                             <td>{{ $student->group->name }}</td>
                             <td>
-                                
-                                @if (old('absen'))
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="absen" value="Hadir" >
-                                    <label class="form-check-label" for="Hadir">Hadir</label>
-                                </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="absen" value="Izin" >
-                                        <label class="form-check-label" for="izin">Izin</label>
-                                </div>
-                                    <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="absen" value="Alfa" >
-                                    <label class="form-check-label" for="alfa">Alfa</label>
-                                </div>    
-                                @else
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="absen" value="Hadir">
-                                    <label class="form-check-label" for="Hadir">Hadir</label>
-                                </div>
-                                    <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="absen" value="Izin">
-                                    <label class="form-check-label" for="izin">Izin</label>
-                                </div>
-                                    <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="absen" value="Alfa">
-                                    <label class="form-check-label" for="alfa">Alfa</label>
-                                </div>   
-                                @endif
+                                <form method="POST" action="/dashboard/absensi">
+                                @csrf
+                                <div class="col-md-6">
+                                    <div class="form-floating">  
+                                      <select class="form-select" name="absen">
+                                      <option selected >Pilih status</option>
+                                      @foreach ($statuses as $status)
+                                      @if (old('absen') == $status->id)
+                                      <option value="{{ $status->id }}" selected>{{ $status->name }}</option> 
+                                      @else
+                                      <option value="{{ $status->id }}">{{ $status->name }}</option>     
+                                      @endif
+                                      @endforeach
+                                      </select>
+                                    </div>
+                                  </div>
                             </td>
                         </tr>
+                        @endforeach
+                        <button type="submit" class="btn btn-primary">Input Data</button>
                     </form>   
-                    @endforeach
-                    </tbody>
+                </tbody>
             </table>
     </div>
 @endsection

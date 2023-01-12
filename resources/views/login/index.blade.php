@@ -7,7 +7,7 @@
 
         @if(session()->has('success'))
         <div class="alert alert-success dismissible fade show" role="alert">
-          {{ session('success') }}
+          {{ sesion('success') }}
           <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div> 
         @endif
@@ -18,10 +18,9 @@
           <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div> 
         @endif
-
+        {{-- <img class="mb-4" src="../assets/brand/bootstrap-logo.svg" alt="" width="72" height="57"> --}}
             <main class="form-signin w-100 m-auto">
-                  {{-- <img class="mb-4" src="../assets/brand/bootstrap-logo.svg" alt="" width="72" height="57"> --}}
-                  <h1 class="h3 mb-3 mt-4 fw-normal text-center">Please Log in</h1>
+                  <h1 class="h3 mb-3 mb-3 fw-normal text-center">Please Log in</h1>
                   <form action="/login" method="post">
                     @csrf
                     <div class="form-floating">

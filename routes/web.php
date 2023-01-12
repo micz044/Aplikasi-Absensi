@@ -67,3 +67,6 @@ Route::resource('/dashboard/student', DashboardStudentController::class)
 
 Route::resource('/dashboard/absensi', DashboardAbsensiController::class)
 ->middleware('auth');
+
+Route::get('/studentExport', [DashboardStudentController::class, 'studentExport'])
+->middleware('auth');

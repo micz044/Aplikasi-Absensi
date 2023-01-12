@@ -15,4 +15,9 @@ class Group extends Model
     {
         return $this->hasOne(Student::class);
     }
+
+    public function Classroom()
+    {
+        return $this->hasOne(Classroom::class);
+    }
 }
