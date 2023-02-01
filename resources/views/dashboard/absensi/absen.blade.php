@@ -43,14 +43,13 @@
                             <td>{{ $student->classroom->kelas }}</td>
                             <td>{{ $student->group->name }}</td>
                             <td>
-                                <form method="POST" action="/dashboard/absensi">
+                                <form method="post" action="/dashboard/absensi">
                                 @csrf
                                 <div class="col-md-6">
                                     <div class="form-floating">  
-                                      <select class="form-select" name="absen">
-                                      <option selected >Pilih status</option>
+                                      <select class="form-select" name="status_id">
                                       @foreach ($statuses as $status)
-                                      @if (old('absen') == $status->id)
+                                      @if (old('status_id') == $status->id)
                                       <option value="{{ $status->id }}" selected>{{ $status->name }}</option> 
                                       @else
                                       <option value="{{ $status->id }}">{{ $status->name }}</option>     
@@ -59,13 +58,13 @@
                                       </select>
                                     </div>
                                   </div>
-                            </td>
-                        </tr>
-                        @endforeach
-                        <button type="submit" class="btn btn-primary">Input Data</button>
-                    </form>   
-                </tbody>
-            </table>
+                                </td>
+                              </tr>
+                              @endforeach
+                              <button type="submit" class="btn btn-primary">Input Data</button>
+                          </form>   
+                      </tbody>
+                    </table>
     </div>
 @endsection
 

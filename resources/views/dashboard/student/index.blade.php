@@ -61,6 +61,11 @@
             </td>
           </tr>   
           @endforeach
+          @empty($student)
+          <tr>
+            <td colspan="10" align="center"><b>tidak ada Data Siswa</b></td>
+          </tr>             
+          @endempty
         </tbody>
       </table>
     </div>

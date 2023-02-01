@@ -17,7 +17,6 @@ return new class extends Migration
             $table->id();
             $table->foreignId('classroom_id');
             $table->foreignId('group_id');
-            $table->foreignId('absen_id')->nullable();
             $table->string('name');
             $table->string('nim')->unique();
             $table->string('alamat');

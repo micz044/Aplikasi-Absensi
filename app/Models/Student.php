@@ -21,7 +21,7 @@ class Student extends Model
     }
     public function Absen()
     {
-        return $this->hasMany(Absen::class);
+        return $this->hasOne(Absen::class);
     }
 }
 

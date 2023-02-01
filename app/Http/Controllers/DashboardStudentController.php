@@ -50,16 +50,19 @@ class DashboardStudentController extends Controller
      */
     public function store(Request $request)
     {
-        $validatedData =
-         $request->validate([
-            'name' => 'required','max:255',
-            'nim' => 'required','unique',
+      $validatedData =
+        $request->validate([
+            'name' => 'required|max:255',
+            'nim' => 'required|unique:students,nim',
             'classroom_id' => 'required',
             'group_id' => 'required',
             'alamat'=>'required',
             'no_tlp'=>'required',
-            'email'=>'required',
+            'email'=>'required|unique:students,email',
             'nama_ortu'=>'required'
+        ],[
+            'nim.unique' => 'Nim tidak boleh sama',
+            'email.unique' => 'email tidak boleh sama'
         ]);
 
         Student::create($validatedData);
@@ -105,14 +108,17 @@ class DashboardStudentController extends Controller
     {
         $validatedData =
          $request->validate([
-            'name' => 'required','max:255',
-            'nim' => 'required','unique',
+            'name' => 'required|max:255',
+            'nim' => 'required|unique:students,nim',
             'classroom_id' => 'required',
             'group_id' => 'required',
             'alamat'=>'required',
             'no_tlp'=>'required',
-            'email'=>'required',
+            'email'=>'required|unique:students,email',
             'nama_ortu'=>'required'
+        ],[
+            'nim.unique' => 'Nim tidak boleh sama',
+            'email.unique' => 'email tidak boleh sama'
         ]);
        $student = Student::findOrfail($id);
         Student::where('id', $student->id)

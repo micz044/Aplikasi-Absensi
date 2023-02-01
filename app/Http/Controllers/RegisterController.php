@@ -15,17 +15,22 @@ class RegisterController extends Controller
 
     public function store(Request $request){
 
+
        $validatedData =
          $request->validate([
-            'name' => 'required','max:255',
-            'username' => 'required','min:3','max:20',
+            'name' => 'required|unique:users,name|max:255',
+            'username' => 'required|unique:users,username|min:3|max:20',
             'level_akses' => 'required',
-            'email' => 'required','email:dns',
+            'email' => 'required|unique:users,email|email:dns',
             'password' =>'required|min:5|max:255'
+        ],[
+           'name.unique' => 'Nama tidak boleh sama',
+           'username.unique' =>'Username sudah digunakan',
+           'email.unique' => 'email Sudah Digunakan'
         ]);   
-
-        $validatedData['password'] = bcrypt($validatedData['password']);
-        User::create($validatedData);
-        return redirect('/login')->with('success', 'Anda Berhasil Mendaftar!');;
+        
+            $validatedData['password'] = bcrypt($validatedData['password']);
+            User::create($validatedData);
+            return redirect('/login')->with('success', 'Anda Berhasil Mendaftar. Silahkan Login!!');   
     }
 }

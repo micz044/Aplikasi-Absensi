@@ -37,7 +37,6 @@ class DashboardAbsensiController extends Controller
         return view('dashboard.absensi.absen' ,[
             'students'=> Student::all(),
             'statuses'=> Status::all(),
-            
          ]);
     }
 
@@ -54,14 +53,13 @@ class DashboardAbsensiController extends Controller
          $request->validate([
             'student_id' => 'required',
             'status_id' => 'required',
-            'absen' => 'required'
+            'absen' 
         ]);
-        $validatedData['student_id'] = Student::get('id');
-        Absen::create($validatedData);
-        return redirect('/dashboard')->with('success', 'absen siswa telah berhasil di input!');
 
         //return $request;
-        //var_dump($validatedData);
+        $validatedData ['student_id'] = Student::get()->id;
+        Absen::create($validatedData);
+        return redirect('/dashboard/absensi/index')->with('success', 'absen siswa telah berhasil di input!');
     }
 
     /**
@@ -106,6 +104,7 @@ class DashboardAbsensiController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Classroom::destroy($id);
+        return redirect('/dashboard/student')->with('success', 'kelas telah dihapus!');
     }
 }

@@ -18,6 +18,6 @@ class Group extends Model
 
     public function Classroom()
     {
-        return $this->hasOne(Classroom::class);
+        return $this->belongsToMany(Classroom::class);
     }
 }

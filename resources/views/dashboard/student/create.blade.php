@@ -26,25 +26,23 @@
               @enderror
             </div>
             <div class="row g-2">
-              <div class="col-md">
-                <div class="form-floating">  
-                  <select class="form-select" name="classroom_id">
-                  <option selected >Pilih kelas</option>
-                  @foreach ($classrooms as $classroom)
-                  @if (old('classroom_id') == $classroom->id)
-                  <option value="{{ $classroom->id }}" selected>{{ $classroom->kelas }}</option> 
-                  @else
-                  <option value="{{ $classroom->id }}">{{ $classroom->kelas }}</option>     
-                  @endif
-                  @endforeach
-                  </select>
-              <label for="kelas">Kelas</label>
-                </div>
+              <div class="col-md">         
+                  <div class="form-floating">  
+                    <select class="form-select" name="classroom_id" required autofocus>
+                    @foreach ($classrooms as $classroom)
+                    @if (old('classroom_id') == $classroom->id)
+                    <option value="{{ $classroom->id }}" selected>{{ $classroom->kelas }}</option> 
+                    @else
+                    <option value="{{ $classroom->id }}">{{ $classroom->kelas }}</option>     
+                    @endif
+                    @endforeach
+                    </select>
+                    <label for="kelas">Kelas</label>
+                  </div>
               </div>
               <div class="col-md">
                 <div class="form-floating">
-                  <select class="form-select" name="group_id">
-                    <option selected >Pilih Grup</option>
+                  <select class="form-select" name="group_id" required autofocus>
                     @foreach ($groups as $group)
                     @if (old('group_id') == $group->id)
                     <option value="{{ $group->id }}" selected>{{ $group->name }}</option>

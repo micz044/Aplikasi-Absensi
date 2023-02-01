@@ -8,10 +8,7 @@
           <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
          <a href="/studentExport"> <button type="button" class="btn btn-sm btn-outline-secondary">Export</button></a>
         </div>
-        <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
-          <span data-feather="calendar" class="align-text-bottom"></span>
-          calendar
-        </button>
+      <input type="datetime-local" name="kalender" id="kalender">
       </div>
     </div>
 
@@ -23,7 +20,6 @@
     @endif
 
     <div class="table-responsive">
-      <a href="/dashboard/student/create" class="btn btn-primary mb-3">kelas</a>
       <table class="table table-striped table-sm" ali>
         <thead>
           <tr>
@@ -38,7 +34,7 @@
           <tr>
             <td>{{$loop->iteration}}</td>
             <td>{{ $classroom->kelas }}</td>
-            <td>{{ $classroom->name }}</td>
+            <td></td>
             <td>
               <a href="/dashboard/absensi/create" class="badge bg-warning"><span data-feather="eye" ></span></a>
               <form action="/dashboard/absensi/" method="post" class="d-inline">

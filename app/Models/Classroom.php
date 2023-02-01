@@ -18,7 +18,7 @@ class Classroom extends Model
 
     public function Group()
     {
-        return $this->belongsTo(Group::class, 'classroom_id');
+        return $this->belongsToMany(Group::class, 'classroom_id');
     }
 }
 

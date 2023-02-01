@@ -7,7 +7,7 @@
 
         @if(session()->has('success'))
         <div class="alert alert-success dismissible fade show" role="alert">
-          {{ sesion('success') }}
+          {{ session('success') }}
           <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div> 
         @endif
@@ -33,7 +33,7 @@
                       @enderror
                     </div>
                     <div class="form-floating mt-2">
-                      <input type="password" name="password" class="form-control" id="password" placeholder="Password" required>
+                      <input type="password" name="password" class="form-control" id="password" placeholder="Password">
                       <label for="password">Password</label>
                     </div>
                     <div>

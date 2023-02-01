@@ -18,6 +18,8 @@ class dataFake extends Seeder
      */
     public function run()
     {
+      //User::factory(10)->create();
+
       User::create([
             'name' => 'Michael Vincent Efren Malamo',
             'email' => 'alvaromichael044@gmail.com',
@@ -30,8 +32,7 @@ class dataFake extends Seeder
             'level_akses' => 'Guru',
             'password' => bcrypt('michael')
       ]);
-
-
+            //Student::StudentFactory(30)->create();
             Student::create([
                   'classroom_id' => 1,
                   'group_id' => 1,
@@ -52,27 +53,61 @@ class dataFake extends Seeder
                   'email' => 'alvaromichael045@gmail.com',
                   'nama_ortu' => 'Putri Anisa'
             ]);
+            Student::create([
+                  'classroom_id' => 1,
+                  'group_id' => 1,
+                  'name' => 'Rahmat Hidayatullah',
+                  'nim' => '205013',
+                  'alamat' => 'jalan racing centre no.21',
+                  'no_tlp' => '08219465433',
+                  'email' => 'rahmathidayah09@gmail.com',
+                  'nama_ortu' => 'Muh yusuf'
+            ]);
+            Student::create([
+                  'classroom_id' => 1,
+                  'group_id' => 1,
+                  'name' => 'Raditya Dika',
+                  'nim' => '205014',
+                  'alamat' => 'jalan AP.Pettarani no.117',
+                  'no_tlp' => '08543464534',
+                  'email' => 'radit093@gmail.com',
+                  'nama_ortu' => 'Andika Dika'
+            ]);
+            Student::create([
+                  'classroom_id' => 1,
+                  'group_id' => 1,
+                  'name' => 'Rafli',
+                  'nim' => '205015',
+                  'alamat' => 'jalan AP.Pettarani no.120',
+                  'no_tlp' => '08543343323',
+                  'email' => 'faff093@gmail.com',
+                  'nama_ortu' => 'andika mirza'
+            ]);
 
        
       
       Group::create([
-            
+            'classroom_id'=> 1,
             'name' => 'A',
             'group' => 'A',
       ]);
       Group::create([
+            'classroom_id'=> 2,
             'name' => 'B',
             'group' => 'B',
       ]);
       Group::create([
+            'classroom_id'=> 3,
             'name' => 'C',
             'group' => 'C',
       ]);
       Group::create([
+            'classroom_id'=> 4,
             'name' => 'D',
             'group' => 'D',
       ]);
       Group::create([
+            'classroom_id'=> 5,
             'name' => 'E',
             'group' => 'E',
       ]);
@@ -101,6 +136,23 @@ class dataFake extends Seeder
             'name' => 'duabelas',
             'kelas' => '12',
       ]);
+
+            Status::create([
+                  'name' => 'Hadir',
+                  'keterangan' => 'Hadir'
+            ]);
+            Status::create([
+                  'name' => 'Izin',
+                  'keterangan' => 'Izin'
+            ]);
+            Status::create([
+                  'name' => 'Sakit',
+                  'keterangan' => 'Sakit'
+            ]);
+            Status::create([
+                  'name' => 'Alfa',
+                  'keterangan' => 'Alfa'
+            ]);
     }
         
 }
