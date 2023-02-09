@@ -26,7 +26,7 @@ class dataFake extends Seeder
             'level_akses' => 'Admin',
             'password' => bcrypt('michael'),
       ]);
-      User::create([
+      User::create([ 
             'name' => 'Andika Permata',
             'email' => 'andika@gmail.com',
             'level_akses' => 'Guru',
