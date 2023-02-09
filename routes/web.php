@@ -26,9 +26,9 @@ Route::get('/', function () {
     ]);
 });
 
-Route::get('/blog', function () {
-    return view('blog', [
-        "title" => "blog"
+Route::get('/developer', function () {
+    return view('developer', [
+        "title" => "developer"
     ]);
 });
 
