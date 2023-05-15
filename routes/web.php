@@ -4,6 +4,7 @@ use App\Models\Post;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\DashboardAbsensiController;
 use App\Http\Controllers\DashboardStudentController;
@@ -66,6 +67,9 @@ Route::resource('/dashboard/student', DashboardStudentController::class)
 ->middleware('cekLevel');
 
 Route::resource('/dashboard/absensi', DashboardAbsensiController::class)
+->middleware('auth');
+
+Route::resource('/dashboard/teacher', TeacherController::class)
 ->middleware('auth');
 
 Route::get('/studentExport', [DashboardStudentController::class, 'studentExport'])

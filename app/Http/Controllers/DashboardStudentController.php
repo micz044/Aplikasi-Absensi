@@ -65,6 +65,7 @@ class DashboardStudentController extends Controller
             'email.unique' => 'email tidak boleh sama'
         ]);
 
+
         Student::create($validatedData);
         return redirect('/dashboard/student')->with('success', 'data siswa telah berhasil di input!');
     }

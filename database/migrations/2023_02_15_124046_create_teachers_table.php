@@ -13,12 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('absens', function (Blueprint $table) {
+        Schema::create('teachers', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('student_id')->constrained();
-            $table->foreignId('kelas_id');
-            $table->date('tanggal');
-            $table->enum('status',['Hadir', 'Izin', 'Sakit', 'Alfa']);
+            $table->foreignId('position_id');
+            $table->string('name');
+            $table->string('nip')->unique();
+            $table->string('status');
+            $table->string('alamat');
+            $table->string('no_tlp');
+            $table->string('email');
             $table->timestamps();
         });
     }
@@ -30,6 +33,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('absens');
+        Schema::dropIfExists('teachers');
     }
 };

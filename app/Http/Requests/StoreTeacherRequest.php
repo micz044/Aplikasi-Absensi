@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreStatusRequest extends FormRequest
+class StoreTeacherRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,7 +24,6 @@ class StoreStatusRequest extends FormRequest
     public function rules()
     {
         return [
-
             'position_id' => 'required',
             'name' => 'required',
             'nip' => 'required|unique:teachers,nip',
@@ -33,7 +32,19 @@ class StoreStatusRequest extends FormRequest
             'no_tlp' => 'required',
             'email' => 'required|unique:teachers,email|email:dns',
             'jabatan' => 'required'
-           
         ];
     }
+
+    /**
+ * Get the error messages for the defined validation rules.
+ *
+ * @return array<string, string>
+ */
+public function messages(): array
+{
+    return [
+        'nip.unique' => 'NIP Sudah digunakan pegawai lain!!',
+        'email.unique' => 'Email Tidak boleh sama dengan pegawai lain!!',
+    ];
+}
 }

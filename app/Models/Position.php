@@ -4,16 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Absen;
 
-class Status extends Model
+class Position extends Model
 {
     use HasFactory;
 
     protected $guarded = ['id'];
-    public function Absen()
-    {
-        return $this->belongsTo(Absen::class);
+
+    public function Teacher(){
+        return $this->hasMany(Teacher::class);
     }
 }
-

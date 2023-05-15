@@ -5,6 +5,7 @@ use App\Models\User;
 use App\Models\Group;
 use App\Models\Status;
 use App\Models\Student;
+use App\Models\Position;
 use App\Models\Classroom;
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -152,6 +153,22 @@ class dataFake extends Seeder
             Status::create([
                   'name' => 'Alfa',
                   'keterangan' => 'Alfa'
+            ]);
+
+            Position::create([
+                  'posisi'=> 'Kepala Sekolah'
+            ]);
+
+            Position::create([
+                  'posisi'=> 'Wakil Kepala Sekolah'
+            ]);
+
+            Position::create([
+                  'posisi'=> 'Administrasi'
+            ]);
+
+            Position::create([
+                  'posisi'=> 'Bendahara'
             ]);
     }
         

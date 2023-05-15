@@ -1,19 +1,19 @@
 @extends('dashboard.layouts.main')
 
 @section('container')
-  <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <h1 class="h2">Daftar Absen Siswa</h1>
         <div class="btn-toolbar mb-2 mb-md-0">
             <div class="btn-group me-2">
-              <button type="button" class="btn btn-sm btn-outline-secondary">Print</button>
-              <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
+                <button type="button" class="btn btn-sm btn-outline-secondary">Print</button>
+                <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
             </div>
             <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
-              <span data-feather="calendar" class="align-text-bottom"><span>
-              This week
+                <span data-feather="calendar" class="align-text-bottom"><span>
+                        This week
             </button>
-          </div>
-  </div>
+        </div>
+    </div>
 
     @if (session()->has('success'))
         <div class="alert alert-success col-md-4" role="alert">
@@ -35,36 +35,44 @@
                 </tr>
             </thead>
             <tbody>
-                    @foreach ($students as $student)
-                        <tr>
-                            <td>{{ $loop->iteration }}</td>
-                            <td>{{ $student->name }}</td>
-                            <td>{{ $student->nim }}</td>
-                            <td>{{ $student->classroom->kelas }}</td>
-                            <td>{{ $student->group->name }}</td>
-                            <td>
-                                <form method="post" action="/dashboard/absensi">
+                @foreach ($students as $student)
+                    <tr>
+                        <td>{{ $loop->iteration }}</td>
+                        <td>{{ $student->name }}</td>
+                        <td>{{ $student->nim }}</td>
+                        <td>{{ $student->classroom->kelas }}</td>
+                        <td>{{ $student->group->name }}</td>
+                        <td>
+                            <form method="post" action="/dashboard/absensi">
                                 @csrf
-                                <div class="col-md-6">
-                                    <div class="form-floating">  
-                                      <select class="form-select" name="status_id">
-                                      @foreach ($statuses as $status)
-                                      @if (old('status_id') == $status->id)
-                                      <option value="{{ $status->id }}" selected>{{ $status->name }}</option> 
-                                      @else
-                                      <option value="{{ $status->id }}">{{ $status->name }}</option>     
-                                      @endif
-                                      @endforeach
-                                      </select>
+                                <div class="col-md-10">
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                            id="Hadir" value="Hadir">
+                                        <label class="form-check-label" for="inlineRadio1">Hadir</label>
                                     </div>
-                                  </div>
-                                </td>
-                              </tr>
-                              @endforeach
-                              <button type="submit" class="btn btn-primary">Input Data</button>
-                          </form>   
-                      </tbody>
-                    </table>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                            id="Izin" value="Izin">
+                                        <label class="form-check-label" for="inlineRadio2">Izin</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                            id="Sakit" value="Sakit">
+                                        <label class="form-check-label" for="inlineRadio3">Sakit</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                            id="Alfa" value="Alfa">
+                                        <label class="form-check-label" for="inlineRadio3">Alfa</label>
+                                    </div>
+                                </div>
+                        </td>
+                    </tr>
+                @endforeach
+                <button type="submit" class="btn btn-primary">Input Data</button>
+                </form>
+            </tbody>
+        </table>
     </div>
 @endsection
-

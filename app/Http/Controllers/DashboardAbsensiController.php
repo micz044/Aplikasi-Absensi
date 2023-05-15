@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Absen;
-use App\Models\Status;
 use App\Models\Student;
 use App\Models\Group;
 use App\Models\Classroom;
@@ -21,7 +20,6 @@ class DashboardAbsensiController extends Controller
     {
         return view('dashboard.absensi.index' ,[
             'students'=> Student::all(),
-            'statuses'=> Status::all(),
             'groups' => Group::all(),
             'classrooms' => Classroom::all()
          ]);
@@ -36,7 +34,6 @@ class DashboardAbsensiController extends Controller
     {
         return view('dashboard.absensi.absen' ,[
             'students'=> Student::all(),
-            'statuses'=> Status::all(),
          ]);
     }
 
@@ -49,17 +46,15 @@ class DashboardAbsensiController extends Controller
     public function store(Request $request)
     {
         
-        $validatedData =
          $request->validate([
             'student_id' => 'required',
             'status_id' => 'required',
-            'absen' 
+            'absen'  => 'required'
         ]);
 
         //return $request;
-        $validatedData ['student_id'] = Student::get()->id;
-        Absen::create($validatedData);
-        return redirect('/dashboard/absensi/index')->with('success', 'absen siswa telah berhasil di input!');
+        Absen::create($request->all());
+        return redirect('/dashboard/student')->back()->with('success', 'Data absensi siswa berhasil disimpan');
     }
 
     /**

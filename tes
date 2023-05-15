@@ -15,8 +15,8 @@ Status::create([
 ]);
 
 Classroom::create([
-      'kelas' => '8',
-      'slug' => 'delapan',
+      'kelas' => '13',
+      'slug' => 'Tiga Belas',
 ]);
 
 
@@ -35,3 +35,7 @@ Classroom::create([
                   </div>
               @enderror
             </div>
+
+Position::create([
+      'posisi'=> 'Guru'
+]);
