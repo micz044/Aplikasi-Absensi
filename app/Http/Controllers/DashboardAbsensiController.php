@@ -18,7 +18,7 @@ class DashboardAbsensiController extends Controller
      */
     public function index()
     {
-        return view('dashboard.absensi.index' ,[
+        return response()->view('dashboard.absensi.index' ,[
             'students'=> Student::all(),
             'groups' => Group::all(),
             'classrooms' => Classroom::all()
@@ -32,7 +32,7 @@ class DashboardAbsensiController extends Controller
      */
     public function create()
     {
-        return view('dashboard.absensi.absen' ,[
+        return response()->view('dashboard.absensi.absen' ,[
             'students'=> Student::all(),
          ]);
     }
@@ -46,50 +46,53 @@ class DashboardAbsensiController extends Controller
     public function store(Request $request)
     {
         
-         $request->validate([
+         $validatedData = $request->validate([
             'student_id' => 'required',
-            'status_id' => 'required',
-            'absen'  => 'required'
+            'kelas_id' => 'required',
+            'status'  => 'required',
+            'keterangan' => 'nullable'
+        ],[
+            'status.required' => 'Status Wajib Dimasukkan'
         ]);
-
-        //return $request;
-        Absen::create($request->all());
-        return redirect('/dashboard/student')->back()->with('success', 'Data absensi siswa berhasil disimpan');
+        $validatedData['student_id'] = Student::where('id');
+        Absen::create($validatedData);
+        return response()->redirect('/dashboard/absensi')->with('success', 'Data absensi siswa berhasil disimpan');
+      
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
+    // /**
+    //  * Display the specified resource.
+    //  *
+    //  * @param  int  $id
+    //  * @return \Illuminate\Http\Response
+    //  */
+    // public function show($id)
+    // {
        
-    }
+    // }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
+    // /**
+    //  * Show the form for editing the specified resource.
+    //  *
+    //  * @param  int  $id
+    //  * @return \Illuminate\Http\Response
+    //  */
+    // public function edit($id)
+    // {
+    //     //
+    // }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
+    // /**
+    //  * Update the specified resource in storage.
+    //  *
+    //  * @param  \Illuminate\Http\Request  $request
+    //  * @param  int  $id
+    //  * @return \Illuminate\Http\Response
+    //  */
+    // public function update(Request $request, $id)
+    // {
+    //     //
+    // }
 
     /**
      * Remove the specified resource from storage.

@@ -26,6 +26,11 @@ Route::get('/', function () {
         "title" => "Home"
     ]);
 });
+Route::get('/welcome', function () {
+    return view('welcome', [
+        "title" => "welcome"
+    ]);
+});
 
 Route::get('/developer', function () {
     return view('developer', [

@@ -27,52 +27,43 @@
             <thead>
                 <tr>
                     <th scope="col">No</th>
+                    {{-- <th scope="col">QR Code</th> --}}
                     <th scope="col">Nama</th>
                     <th scope="col">NIM</th>
-                    <th scope="col">Kelas</th>
-                    <th scope="col">Grup</th>
                     <th scope="col">Action</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach ($students as $student)
                     <tr>
+                      @csrf
+                        <form method="post" action="/dashboard/absensi/{{ $student->id }}">
                         <td>{{ $loop->iteration }}</td>
                         <td>{{ $student->name }}</td>
                         <td>{{ $student->nim }}</td>
-                        <td>{{ $student->classroom->kelas }}</td>
-                        <td>{{ $student->group->name }}</td>
                         <td>
-                            <form method="post" action="/dashboard/absensi">
-                                @csrf
-                                <div class="col-md-10">
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="inlineRadioOptions"
-                                            id="Hadir" value="Hadir">
-                                        <label class="form-check-label" for="inlineRadio1">Hadir</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="inlineRadioOptions"
-                                            id="Izin" value="Izin">
-                                        <label class="form-check-label" for="inlineRadio2">Izin</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="inlineRadioOptions"
-                                            id="Sakit" value="Sakit">
-                                        <label class="form-check-label" for="inlineRadio3">Sakit</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="inlineRadioOptions"
-                                            id="Alfa" value="Alfa">
-                                        <label class="form-check-label" for="inlineRadio3">Alfa</label>
-                                    </div>
-                                </div>
+                            <div class="form-check form-check-inline">
+                              <input class="form-check-input" type="radio" name="status" id="status" value="Hadir">
+                              <label class="form-check-label" for="Hadir">Hadir</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                              <input class="form-check-input" type="radio" name="status" id="status" value="Alfa">
+                              <label class="form-check-label" for="Alfa">Alfa</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                              <input class="form-check-input" type="radio" name="status" id="status" value="Sakit">
+                              <label class="form-check-label" for="Sakit">Sakit</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                              <input class="form-check-input" type="radio" name="status" id="status" value="Izin">
+                              <label class="form-check-label" for="Izin">Izin</label>
+                            </div>
                         </td>
                     </tr>
                 @endforeach
-                <button type="submit" class="btn btn-primary">Input Data</button>
-                </form>
             </tbody>
         </table>
+        <button type="submit" class="btn btn-primary">Input Data</button>  
+        </form>            
     </div>
 @endsection

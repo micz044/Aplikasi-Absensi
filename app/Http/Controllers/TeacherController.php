@@ -30,6 +30,7 @@ class TeacherController extends Controller
     {
         return view('dashboard.teacher.create',[
             'positions' => position::all(),
+            'teachers' => Teacher::all()
         ]);
     }
 
@@ -41,6 +42,7 @@ class TeacherController extends Controller
      */
     public function store(StoreTeacherRequest $request)
     {
+        
         $validatedData = $request->all();
         Teacher::create($validatedData);
         return redirect('/dashboard/teacher')->with('success', 'data Guru telah berhasil di input!');

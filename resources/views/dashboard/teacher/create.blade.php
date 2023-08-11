@@ -29,10 +29,10 @@
               <div class="col-md">         
                   <div class="form-floating">  
                     <select class="form-select" name="status" required autofocus>
-                    <option value="PNS">PNS</option> 
-                    <option value="Honorer">Honorer</option> 
+                        <option value="PNS" {{ $teacher->status == 'PNS' ? 'selected' : '' }}>PNS</option>
+                        <option value="Honorer" {{ $teacher->status == 'Honorer' ? 'selected' : '' }}>Honorer</option>                      
                     </select>
-                    <label for="kelas">Status</label>
+                    <label for="status">Status</label>
                   </div>
               </div>
               <div class="col-md">

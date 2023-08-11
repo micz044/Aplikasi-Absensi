@@ -2,5 +2,5 @@
 
 
 @section('container')
-<h1>Defeloper Aplikasi Absensi Online</h1>
+<h1>Developer Aplikasi Absensi Online</h1>
 @endsection

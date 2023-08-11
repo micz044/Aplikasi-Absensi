@@ -19,4 +19,9 @@ class Absen extends Model
     {
         return $this->hasOne(Status::class);
     }
+
+    public function Classroom()
+    {
+        return $this->belongsTo(Classroom::class);
+    }
 }

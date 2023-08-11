@@ -12,7 +12,7 @@ class Teacher extends Model
     protected $guarded =['id'];
       
     public function Position(){
-        return $this->belongsTo(Position::class);
+        return $this->hasOne (Position::class);
     }
 
 }

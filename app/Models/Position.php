@@ -12,6 +12,6 @@ class Position extends Model
     protected $guarded = ['id'];
 
     public function Teacher(){
-        return $this->hasMany(Teacher::class);
+        return $this->belongsTo (Teacher::class);
     }
 }

@@ -15,6 +15,9 @@
             <li class="nav-item">
               <a class="nav-link {{ ($title === "About") ? 'active' : '' }}" href="/about">About</a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link {{ ($title === "welcome") ? 'active' : '' }}" href="/welcome">Laravel</a>
+            </li>
         </ul>
 
         <ul class="navbar-nav ms-auto">

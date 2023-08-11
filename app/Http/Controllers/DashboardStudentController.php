@@ -15,7 +15,7 @@ class DashboardStudentController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * 
      */
     public function index()
     {
@@ -32,7 +32,7 @@ class DashboardStudentController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * 
      */
     public function create()
     {
@@ -70,22 +70,22 @@ class DashboardStudentController extends Controller
         return redirect('/dashboard/student')->with('success', 'data siswa telah berhasil di input!');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Student  $student
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Student $student)
-    {
-        //
-    }
+    // /**
+    //  * Display the specified resource.
+    //  *
+    //  * @param  \App\Models\Student  $student
+    //  * @return \Illuminate\Http\Response
+    //  */
+    // public function show(Student $student)
+    // {
+    //     
+    // }
 
     /**
      * Show the form for editing the specified resource.
      *
      * @param  \App\Models\Student  $student
-     * @return \Illuminate\Http\Response
+     * 
      */
     public function edit($id)
     {
@@ -110,12 +110,12 @@ class DashboardStudentController extends Controller
         $validatedData =
          $request->validate([
             'name' => 'required|max:255',
-            'nim' => 'required|unique:students,nim',
+            'nim' => 'required',
             'classroom_id' => 'required',
             'group_id' => 'required',
             'alamat'=>'required',
             'no_tlp'=>'required',
-            'email'=>'required|unique:students,email',
+            'email'=>'required',
             'nama_ortu'=>'required'
         ],[
             'nim.unique' => 'Nim tidak boleh sama',
